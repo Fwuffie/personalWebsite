@@ -7,31 +7,43 @@
 body {
 	overflow-x: hidden;
 	margin: 0px;
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
 }
 
 main {
 	max-width: 800px;
-    width: 100%;
+	width: 100%;
+}
+#backgroundPreload {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	z-index: -1;
+}
+
+#backgroundPreload > img {
+	min-height: 100vh;
+	min-width: 100vw;
+	object-fit: cover;
 }
 
 #background {
-	background: url(assets/backgroundPreLoad.jpg);
 	background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+	background-size: cover;
+	background-repeat: no-repeat;
 	height: 100vh;
 	width: 100vw;
 	position: fixed;
 	z-index: -1;
 	top: 0;
 	left: 0;
-	background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 #cvdl {
@@ -41,14 +53,14 @@ main {
 }
 
 .info {
-    position: fixed;
-    height: 0vh;
-    width: 50vw;
-    background: #d6cbfd;
-    z-index: 1;
-    border-radius: 1em;
-    overflow: hidden;
-    filter: drop-shadow(2px 4px 6px #463d65);
+		position: fixed;
+		height: 0vh;
+		width: 50vw;
+		background: #d6cbfd;
+		z-index: 1;
+		border-radius: 1em;
+		overflow: hidden;
+		filter: drop-shadow(2px 4px 6px #463d65);
 }
 
 .info > h1 {
@@ -66,9 +78,9 @@ main {
 	overflow-y: scroll;
 	padding-bottom: 5em;
 	display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
 }
 
 .info > div > p {
@@ -96,12 +108,12 @@ main {
 }
 
 header, #Experience, #Projects {
-    position: relative;
-    max-width: 700px;
-    background-color:rgb(255 233 254 / 81%);;
-    border-radius: 1em;
-    padding: 1.5em 3em 1.5em 3em;
-    margin: 0.5em;
+		position: relative;
+		max-width: 700px;
+		background-color:rgb(255 233 254 / 81%);;
+		border-radius: 1em;
+		padding: 1.5em 3em 1.5em 3em;
+		margin: 0.5em;
 }
 
 a {
@@ -123,11 +135,11 @@ h3, h4 {
 }
 
 #PersonalInfo {
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
-    line-height: 1.2;
-    /*margin-bottom: 1em;*/
+		list-style: none;
+		padding: 0px;
+		margin: 0px;
+		line-height: 1.2;
+		/*margin-bottom: 1em;*/
 }
 
 #Experience {
@@ -136,31 +148,31 @@ h3, h4 {
 }
 #Experience > div {
 	margin-right: 1em;
-	flex:  1 1 0px;
+	flex:	1 1 0px;
 }
 
 #ProjectsList {
 	display: none;
 	list-style: none;
-    padding: 0px;
-    margin: 0px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+		padding: 0px;
+		margin: 0px;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
 }
 
 #ProjectsList > a {
 	background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+		background-size: cover;
+		background-repeat: no-repeat;
 	display: flex;
 	flex-direction: column;
-    justify-content: flex-end;
+		justify-content: flex-end;
 	height: 8em;
 	width: 8em;
 	margin: 1em;
 	border-style: outset;
-    border-color: #843781;
+		border-color: #843781;
 }
 
 #ProjectsList > a > p{
@@ -177,19 +189,19 @@ h3, h4 {
 }
 
 @keyframes show {
-	0%   {height: 0vh;}
+	0%	 {height: 0vh;}
 	100% {height: 65vh;}
 }
 
 @keyframes showFull {
-		0%   {height: 0vh;}
+		0%	 {height: 0vh;}
 		100% {height: 90vh;}
 	}
 
 .animateShow {
 	animation-name: show;
 	animation-duration: 0.5s;
-    animation-fill-mode: both;
+		animation-fill-mode: both;
 }
 
 #footnotes {
@@ -272,20 +284,20 @@ span.project-content {
 
 .project-gallery .w3-button {
 	position: absolute;
-    top: 50%;
-    border: none;
-    display: inline-block;
-    padding: 8px 16px;
-    vertical-align: middle;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    background-color: inherit;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
+		top: 50%;
+		border: none;
+		display: inline-block;
+		padding: 8px 16px;
+		vertical-align: middle;
+		overflow: hidden;
+		text-decoration: none;
+		color: inherit;
+		background-color: inherit;
+		text-align: center;
+		cursor: pointer;
+		white-space: nowrap;
 	color: #fff!important;
-    background-color: #000!important;
+		background-color: #000!important;
 }
 
 .project-img-desc {
@@ -339,20 +351,20 @@ span.project-content {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 6px;
+	width: 6px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+	background: #f1f1f1;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+	background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+	background: #555;
 }
