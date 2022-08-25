@@ -26,7 +26,7 @@ function loadDoc() {
 	xhttp.onload = function() {
 		const projects = JSON.parse(this.responseText);
 		projects.forEach(formatProjects);
-		// displayGalleryImages()
+		Zoom('.project-gallery img')
 	}
 	xhttp.open("GET", "projects.json", true);
 	return xhttp.send();
@@ -45,7 +45,7 @@ function formatProjects(project) {
 	} else {
 		projectDom.querySelector('.project-icon').style.display = 'none';
 	}
-	
+
 
 	if (project.link.title != "") {
 		projectDom.querySelector('.project-link').innerHTML += project.link.title
