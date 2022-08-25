@@ -71,10 +71,10 @@
 		]
 	},
 	{
-		"title": "Upgrading the ears on my headphones",
+		"title": "Reverse Engineering Razer Headphones",
 		"id": "headphones",
 		"icon": "pcb.png",
-		"description": "I've owned the razer kitty headphones for well over a year, but honestly im not all that into cats so i decided to do something about it. I picked up a pair of Dog ear hair clips from etsy and got dissasembling the headphones. The razer kitty headphones have light up rgb controllable ears and I didn't want to loose that functionality, unfortunately to my dismay the engineers at razer had not designed their PCBs to be particuarly modular so it was time to reverse engineer the pcb. At first the PCB made no sense, wires were coming in and heading straight out, without passing through anything but a capacitor. Fortunately after some tracing I was able to determine that most of the wires passing through the PCB could just be soldered to each other, and I could splice into the tiny ribbon cable that connected the two ears.",
+		"description": "I've owned the Razer kitty headphones for well over a year, but honestly im not all that into cats so i decided to do something about it. I picked up a pair of Dog ear hair clips from etsy and got dissasembling the headphones. The razer kitty headphones have light up rgb controllable ears and I didn't want to loose that functionality, unfortunately to my dismay the engineers at razer had not designed their PCBs to be particuarly modular so it was time to reverse engineer the pcb. At first the PCB made no sense, wires were coming in and heading straight out, without passing through anything but a capacitor. Fortunately after some tracing I was able to determine that most of the wires passing through the PCB could just be soldered to each other, and I could splice into the tiny ribbon cable that connected the two ears.",
 		"link": {
 			"title": "",
 			"url": ""
