@@ -3,40 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="Description" CONTENT="The Software and Development Portfolio of Lily Page">
-	<script type="text/javascript">
-		function closeWindows(){
-			windows = Array.from(document.getElementsByClassName('info'));
-			windows.forEach(function (window) {
-				window.className = "info"
-			})
-		}
-
-		function loadBackground(){
-			document.getElementById('background').style.backgroundImage = "url(assets/background.gif)";
-		}
-
-		window.addEventListener('DOMContentLoaded', (event) => {
-		 	let params = (new URL(document.location)).searchParams
-			if (params.has("autoload")) {
-				closeWindows()
-				document.getElementById(params.get("autoload")).className = 'info animateShow'
-			}
-		});
-
-
-
-	</script>
+	<script src="portfolio-script.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QM1RCH8721"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-QM1RCH8721');
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-QM1RCH8721');
 	</script>
-	<link rel="stylesheet" type="text/css" href="style.css?rnd=11">
+	<link rel="stylesheet" type="text/css" href="portfolio-style.css?rnd=11">
 	<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 	<title>Lily's Portfolio</title>
 </head>
 <body id="body" onload="loadBackground()">
@@ -47,7 +25,14 @@
 			<li><h1>Lily Page</h1></li>
 			<li>Scotland, UK</li>
 			<li>Contact | <a href="mailto:hello@nyan.ca">hello@nyan.ca</a></li>
-			<li>Git | <a href="https://github.com/Fwuffie">github.com/Fwuffie</a></li>
+			<li style="margin-top: .75em;">
+				<a href="https://github.com/Fwuffie">
+					<i class="fa-brands fa-github fa-2x"></i>
+				</a>
+				<a href="https://www.linkedin.com/in/broccoli-dino-lily/">
+					<i class="fa-brands fa-linkedin fa-2x"></i>
+				</a>
+			</li>
 		</ul>
 		<a href="/cv.pdf" target="_blank" id="cvdl">
 			Download as a resume.
@@ -77,7 +62,7 @@
 		</div><div>
 		<h3>Other Experience</h3>
 			<ul>
-				<li>Leadership and Coaching</li> 
+				<li>Leadership and Coaching</li>
 				<li>Visual Design</li>
 			</ul>
 		</div>
@@ -85,14 +70,26 @@
 
 	<div id="Projects">
 		<h3>Personal Projects</h3>
-		<div id="ProjectsList">
+
+		<div class="project-card" id="cloned-card">
+			<h4 class="project-title"></h4>
+			<div class="project-body">
+				<img class="project-icon" src="assets/projects/collar.jpg" alt="">
+				<span class="project-content"></span>
+				<div class="project-gallery">
+					<button class="w3-button w3-display-left" onclick="plusDivs(-1, event)">&#10094;</button>
+					<button class="w3-button w3-display-right" onclick="plusDivs(1, event)">&#10095;</button>
+				</div>
+			</div>
+		</div>
+		<!-- <div id="ProjectsList">
 			<a style="background-image: url(assets/projects/collar.jpg)" href="#" onclick="closeWindows(); document.getElementById('collarInfo').className = 'info animateShow';"><p>Internet Enabled Shock Collar</p></a>
 			<a style="background-image: url(assets/projects/ukmap.jpg)" href="#" onclick="closeWindows(); document.getElementById('ukCovidMap').className = 'info animateShow';"><p>Scotland Covid Map</p></a>
 			<a style="background-image: url(assets/projects/rfidCards.jpg)" href="#" onclick="closeWindows(); document.getElementById('rfidInfo').className = 'info animateShow';"><p>RFID Door Key Cloning</p></a>
 			<a style="background-image: url(assets/projects/CuriousCat.jpg)" href="#" onclick="closeWindows(); document.getElementById('curiousCatInfo').className = 'info animateShow'"><p>CuriousCat Archiver</p></a>
 			<a style="background-image: url(assets/projects/headphones.jpg)" href="#" onclick="closeWindows(); document.getElementById('headphones').className = 'info animateShow'"><p>Headphone Modding</p></a>
 			<a style="background-image: url(assets/projects/xivlogo.png)" href="#" onclick="closeWindows(); document.getElementById('ffxiv').className = 'info animateShow'"><p>FFXIV Reverse Engineering</p></a>
-		</div>
+		</div> -->
 	</div>
 </main>
 
@@ -100,7 +97,7 @@
 	<h1>GPT3 is a Good Software Engineer</h1>
 	<a href="#" onclick="closeWindows()">X</a>
 	<div>
-		
+
 	</div>
 </div>
 
@@ -170,12 +167,12 @@
 		After presenting it back to my friend, they were pleased with the archiver, but wanted a few parts modified, such as implementing multithreading into the downloading utility, and allowing it to pull a range of usernames from a file.<br><br>
 
 		The Project can be forund on my Github named <a href="https://github.com/Fwuffie/CuriousCatArchiver">curiousCatArchiver</a>. <br><br></p>
- 		
+
 		<div><i>The Original Site</i>
 		<img src="assets/projects/curiousCatBefore.png"></div>
 		<div><i>My Archive Of The Site</i>
 		<img src="assets/projects/curiousCatAfter.png"></div>
-		
+
 	</div>
 </div>
 
