@@ -24,6 +24,22 @@
 		]
 	},
 	{
+		"title": "GPT-3 Assisted Job Application Engine",
+		"id": "gptJob",
+		"icon": false,
+		"description": "Tired of responding to the same job application questions, only to recive the email \"We've decided to move forward with other candidates\" because I don't quite have the experience they're looking for, I began to automate the process of applying to job applications. My big plan? OpenAi's GPT-3, by prompting it with a formatted Job Application and then priming it with the questions it was able to remove that tedium.\nI built out a python app that gets listings from a job board, attempts to answer them using predefined responses, or if that fails send them off to the GPT Api and then responds to the Job Application automatically.",
+		"link": {
+			"title": "Git Repository",
+			"url": "https://github.com/Fwuffie/GPT3IsAGoodSoftwareEngineer/"
+		},
+		"images": [
+			{
+				"title": "GPT applying to a job.",
+				"url": "gptJobApplication.png"
+			}
+		]
+	},
+	{
 		"title": "Map Of Covid Cases In The UK",
 		"id": "ukCovidMap",
 		"icon": "ukmap.jpg",

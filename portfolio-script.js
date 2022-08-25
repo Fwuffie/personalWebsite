@@ -40,7 +40,12 @@ function formatProjects(project) {
 	projectDom.id = project.id
 	projectDom.querySelector('.project-title').textContent = project.title
 	projectDom.querySelector('.project-content').textContent = project.description
-	projectDom.querySelector('.project-icon').src = 'assets/projects/' + project.icon
+	if (project.icon) {
+		projectDom.querySelector('.project-icon').src = 'assets/projects/' + project.icon
+	} else {
+		projectDom.querySelector('.project-icon').style.display = 'none';
+	}
+	
 
 	if (project.link.title != "") {
 		projectDom.querySelector('.project-link').innerHTML += project.link.title
