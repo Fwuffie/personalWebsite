@@ -7,9 +7,10 @@
 body {
 	overflow-x: hidden;
 	margin: 0px;
-    display: flex;
-    justify-content: center;
-    width: 100vw;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 main {
@@ -18,9 +19,10 @@ main {
 }
 
 #background {
+	background: url(assets/backgroundPreLoad.jpg);
 	background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
 	height: 100vh;
 	width: 100vw;
 	position: fixed;
@@ -28,8 +30,8 @@ main {
 	top: 0;
 	left: 0;
 	background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #cvdl {
