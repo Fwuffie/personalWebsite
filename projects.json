@@ -5,13 +5,22 @@
 		"icon": "collar.jpg",
 		"description": "One of the more devious projects I've done is an internet-enabled shock collar. I bought a cheap radio-controlled shock collar and enabled it to be web controlled by my partner. My plan was to clone the radio signals. Using an amateur radio, I was able to confirm that the collar was operating on the standard commercial carrier frequency 443 MHz. Then, by using an oscilloscope, I discovered that the actual data signal was being sent using binary phase-shift keying at approximately 4 kHz. I happened to have some 443 MHz receivers and transmitters in a drawer, and so I was able to read the signal purely as the binary phase-shift keying. I then used the faster clock speed of a Raspberry Pi to log the signal.",
 		"link": {
-			"title": "Non-line Development Build",
+			"title": "Non-live Development Build",
 			"url": "https://nyan.ca/collar/"
 		},
 		"images": [
-			"transmitter.jpg",
-			"multiplewaveform.png",
-			"collarFrontEnd.png"
+			{
+				"title": "Arduino Transmitter",
+				"url": "transmitter.jpg"
+			},
+			{
+				"title": "Waveforms",
+				"url": "multiplewaveform.png"
+			},
+			{
+				"title": "Frontend Controls",
+				"url": "collarFrontEnd.png"
+			}
 		]
 	},
 	{
@@ -20,11 +29,14 @@
 		"icon": "ukmap.jpg",
 		"description": "One of the issues I had during the UK covid pandemic, was having a solid understanding of it's current severity. That's why I built a physical map to display a weighted average of weekly covid cases. The map was built on the back of a A2 Printed map of scotland, and serial controllable RGB led's were attached to the back. The LED's were then attached to a raspberry pi which pulled data about the covid pandemic every morning and updated the LED's based on a forward weighted average.",
 		"link": {
-			"title": "Github Link",
-			"url": "https://nyan.ca/collar/"
+			"title": "",
+			"url": ""
 		},
 		"images": [
-			"scotlandcovid.jpg"
+			{
+				"title": "Covid Map",
+				"url": "scotlandcovid.jpg"
+			}
 		]
 	},
 	{
@@ -34,7 +46,7 @@
 		"description": "While staying in university dorms, we were provided an RFID key to unlock our dorm rooms. This led to the common issue of leaving your key inside your room and locking yourself out, forcing you to pay a $15 key replacement fee. The solution to this? Purchasing a USB NFC reader, and cloning the cards. Fortunately Mifare 1k RFID cards have been torn apart by the hardware hacking community, and have several known vulnerabilities. The vulnerability that was easiest to execute for me was the 'Nested Attack', which authenticates with an unused block using default keys to determine certian constants and timing information, and then preforms a timing attack on the authenticated sectors allowing key's to be guessed. Eventually being able to clone cards, I kept a set of friends card data, so in the event that they or I misplaced the card they could be let back into their dorm rooms.",
 		"link": {
 			"title": "Github Link",
-			"url": "https://nyan.ca/collar/"
+			"url": "https://github.com/Fwuffie/MifareReader"
 		},
 		"images": []
 	},
@@ -45,39 +57,57 @@
 		"description": "CuriousCat is a social media site, where users can anonymously ask questions to other users, and the other users can choose to reply. I was asked by a friend if I knew of any way to archive a user's posts, so they could make a personal archive of their account and after some research discovered no such tool. Being fairly free at the time, I set to work deconstructing the site, and reverse-engineering how it retrived data based on network traffic, fortunately it was fairly simply, pulling a json file based on the user's ID and a post timestamp. Within 30 minutes, I had a python script which would archive all posts, within an hour it would also create local copies of images. What took slightly more time to do, was create a viewer for posts so the end user wouldn't have to sift through dense JSON, unfortunately Curious Cat writes it's CSS on the fly using a javascript framework, and so it was somewhere between difficult and impossible to steal the source files. Instead I spent a couple oh hours manually recreating the Styling. Finally I wrote some javascript to populate the newly created viewer from the JSON file that was downloaded earlier. After presenting it back to my friend, they were pleased with the archiver, but wanted a few parts modified, such as implementing multithreading into the downloading utility, and allowing it to pull a range of usernames from a file.",
 		"link": {
 			"title": "Github Link",
-			"url": "https://nyan.ca/collar/"
+			"url": "https://github.com/Fwuffie/CuriousCatArchiver/"
 		},
 		"images": [
-			"curiousCatAfter.png",
-			"curiousCatBefore.png"
+			{
+				"title": "Original Site",
+				"url": "curiousCatAfter.png"
+			},
+			{
+				"title": "Archived Site",
+				"url": "curiousCatBefore.png"
+			}
 		]
 	},
 	{
 		"title": "Upgrading the ears on my headphones",
 		"id": "headphones",
-		"icon": "headphones.jpg",
+		"icon": "pcb.png",
 		"description": "I've owned the razer kitty headphones for well over a year, but honestly im not all that into cats so i decided to do something about it. I picked up a pair of Dog ear hair clips from etsy and got dissasembling the headphones. The razer kitty headphones have light up rgb controllable ears and I didn't want to loose that functionality, unfortunately to my dismay the engineers at razer had not designed their PCBs to be particuarly modular so it was time to reverse engineer the pcb. At first the PCB made no sense, wires were coming in and heading straight out, without passing through anything but a capacitor. Fortunately after some tracing I was able to determine that most of the wires passing through the PCB could just be soldered to each other, and I could splice into the tiny ribbon cable that connected the two ears.",
 		"link": {
-			"title": "Github Link",
-			"url": "https://nyan.ca/collar/"
+			"title": "",
+			"url": ""
 		},
 		"images": [
-			"tiny.jpg",
-			"pcb.png"
+			{
+				"title": "Tiny",
+				"url": "tiny.jpg"
+			},
+			{
+				"title": "Reverse Engineered Headphones",
+				"url": "headphones.jpg"
+			}
 		]
 	},
 	{
 		"title": "Final Fantasy XIV Reverse Engineering",
 		"id": "ffxiv",
 		"icon": "xivlogo.png",
-		"description": "I've been playing Final Fantasy with my girlfriend for a bit now, she really loves it and she also loves lego. I wanted to design a custom lego set based on one of the locations in the game. Whilst I'm still working on the lego set, In order to have a good reference I reverse engineered the game's code and implemented an untethered camera, letting me look at any part of the map. I was able to track down the code modifying the camera coordinates by estimating the expected value of it's zoom, pan and tilt, attaching a debugger and then finding the code using those values to calculate the camera's expected position. Fortunately there was a code cave nearby where I could hook in my code to give the camera first person controls. A little bit of matrix calculations later and i had a freecam. Seperately in the game we were looking to buy a house together, Unfortunately The MMO is going through a bit of a housing crisis at the moment, and getting one involves spending upwards of 6 hours clicking a dialog box alongside upwards of 50 other players for a chance to be the one who gets it. So it was time to automate that task, this time i decided to setup a tcp proxy in python that would allow me to decode and eventually send the necessary packets.",
+		"description": "I reverse engineered the online game Final Fantasy XIV's code and implemented an untethered camera, letting me look at any part of the map. I was able to track down the code modifying the camera coordinates by estimating the expected value of it's zoom, pan and tilt, attaching a debugger and then finding the code using those values to calculate the camera's expected position. Fortunately, there was a code cave nearby where I could hook in my code to give the camera first person controls. A little bit of matrix calculations later and I had a freecam. Separately, the MMO is unfortunately going through a bit of a housing crisis, and getting one involves spending several hours clicking a dialog box alongside dozens of other players for a chance to be the one who gets it. So it was time to automate that task, this time I decided to setup a TCP proxy in Python that would allow me to decode and eventually send the necessary packets.",
 		"link": {
 			"title": "Github Link",
-			"url": "https://nyan.ca/collar/"
+			"url": "https://github.com/Fwuffie/FFXIVTcpProxy"
 		},
 		"images": [
-			"tcp.png",
-			"xivcam.jpg"
+			{
+				"title": "Network packets",
+				"url": "tcp.png"
+			},
+			{
+				"title": "Freecam in action",
+				"url": "xivcam.jpg"
+			}
 		]
 	}
 ]

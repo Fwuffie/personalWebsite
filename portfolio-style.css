@@ -204,8 +204,14 @@ h3, h4 {
 
 .project-card {
 	margin-top: 1em;
-	background-color: #EEE;
+	background-color: rgb(255 255 255 / 50%);
 	border-radius: 1em;
+}
+
+.project-header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .project-body {
@@ -231,11 +237,19 @@ span.project-content {
 .project-gallery {
 	margin-top: 1em;
 	position: relative;
+	width: 100%;
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(255 255 255 / 60%);
 }
 
 .project-gallery > img {
-	height: 300px;
-	width: 100%;
+	width: auto;
+	height: fit-content;
+	max-width: 100%;
+	max-height: 100%;
 	display: none;
 }
 
@@ -271,6 +285,17 @@ span.project-content {
     white-space: nowrap;
 	color: #fff!important;
     background-color: #000!important;
+}
+
+.project-img-desc {
+	background-color: rgb(255 255 255);
+	padding: .5em;
+	border-bottom-right-radius: .5em;
+	border-bottom-left-radius: .5em;
+}
+
+.fa-link {
+	margin-right: .5rem;
 }
 
 @media (pointer:coarse){

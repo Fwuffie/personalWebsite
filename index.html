@@ -72,7 +72,10 @@
 		<h3>Personal Projects</h3>
 
 		<div class="project-card" id="cloned-card">
-			<h4 class="project-title"></h4>
+			<div class="project-header">
+				<h4 class="project-title"></h4>
+				<a class="project-link" href=""><i class="fa-solid fa-link"></i></a>
+			</div>
 			<div class="project-body">
 				<img class="project-icon" src="assets/projects/collar.jpg" alt="">
 				<span class="project-content"></span>
@@ -80,16 +83,9 @@
 					<button class="w3-button w3-display-left" onclick="plusDivs(-1, event)">&#10094;</button>
 					<button class="w3-button w3-display-right" onclick="plusDivs(1, event)">&#10095;</button>
 				</div>
+				<div class="project-img-desc"></div>
 			</div>
 		</div>
-		<!-- <div id="ProjectsList">
-			<a style="background-image: url(assets/projects/collar.jpg)" href="#" onclick="closeWindows(); document.getElementById('collarInfo').className = 'info animateShow';"><p>Internet Enabled Shock Collar</p></a>
-			<a style="background-image: url(assets/projects/ukmap.jpg)" href="#" onclick="closeWindows(); document.getElementById('ukCovidMap').className = 'info animateShow';"><p>Scotland Covid Map</p></a>
-			<a style="background-image: url(assets/projects/rfidCards.jpg)" href="#" onclick="closeWindows(); document.getElementById('rfidInfo').className = 'info animateShow';"><p>RFID Door Key Cloning</p></a>
-			<a style="background-image: url(assets/projects/CuriousCat.jpg)" href="#" onclick="closeWindows(); document.getElementById('curiousCatInfo').className = 'info animateShow'"><p>CuriousCat Archiver</p></a>
-			<a style="background-image: url(assets/projects/headphones.jpg)" href="#" onclick="closeWindows(); document.getElementById('headphones').className = 'info animateShow'"><p>Headphone Modding</p></a>
-			<a style="background-image: url(assets/projects/xivlogo.png)" href="#" onclick="closeWindows(); document.getElementById('ffxiv').className = 'info animateShow'"><p>FFXIV Reverse Engineering</p></a>
-		</div> -->
 	</div>
 </main>
 
@@ -98,142 +94,6 @@
 	<a href="#" onclick="closeWindows()">X</a>
 	<div>
 
-	</div>
-</div>
-
-<div id="collarInfo" class="info">
-	<h1>Internet Enabled Shock Collar</h1>
-	<a href="#" onclick="closeWindows()">X</a>
-	<div>
-		<p>Possibly one of the more devious projects of mine in recent memory, is an internet enabled shock collar, where I bought a cheap radio controlled shock collar and enabled it to be web controlled by my partner.<br><br>
-
-		The collar came with a remote, and so the first idea that came to mind was deconstructing the remote and attaching to the pcb directly, however that solution would have been messy, and keeping track of the controller's internal memory would have been difficult. Instead the tidier solution was to clone the radio signals.<br><br>
-
-		Using an amature radio I was able to confirm that the collar was operating on the standard commercial carrier frequency 443Mhz, then by using an occilioscope I discovered that the actual data signal was being sent using binary phase-shift keying at approximately 4Khz.<br><br>
-
-		I happened to have some 443mhz recivers and transmitters in a drawer, and so I was able to read the signal purely as the binary phase-shift keying. Initially i tried to use an Arduino and serial communications to monitor the signals coming from the remote, however the clockspeed of the arduino was not fast enough to send the signal back over serial. Instead I used the faster clockspeed of a raspberry pi to log the signal to a file.<br><br>
-
-		Decoding the signal was particuarly confusing, I had a large text file full of binary data, 95% of it random noise thanks to the automatic gain on the 443Mhz tuners. So I updated the python program to write raw byte data to the file, so I could open it as a raw audio file in Audacity, to look at the waveforms.<br><br>
-
-		The first job looking at the waveforms, was to disemenate the data from the background noise, fortunately using the period of time after a transmission when the gain was re-adjusting I could find the end of a transmission and then determine the start by when the spacing between amplitudes became inconsistent. I now had several different waveforms that i could analyse. The first thing to notice was a consistent use of either short or long high pulses, taking a guess I assumed the long pulses were ment to represent binary 1's and the short pulses 0, this guess happened to be correct and so I set to work transposing the waveforms from wave to binary text.<br><br>
-
-		The first part of the transmission was consistent between all of the transmissions, then the next 3 parts varied based on chanel, collar mode and intensity respectivly however the final part of the transmission appeared to be a checksum, but it was seemingly random. Looking at the checksum more though, it appeared to be a simple sum of 8 bit segments of the full transmission. Once I had confirmed this, it was easy to generate the checksum and create a transmission with any arbitrary set of channel, mode and intensities.<br><br>
-
-		I now had a raspberry pi that could send commands to the collar, all that was left to do is internet enable the pi. As the pi had critical radio timings I decided to simply run the commands over ssh, and then host a webserver on my personal server. I built the server ontop of PHP simply because It was allready installed and decorated the page, so that it could be operated remotely. The Non-Live Development version of the site can be found at <a href="https://nyan.ca/collar">nyan.ca/collar</a><br><br>
-
-		It was now finally working, later it would be updated to allow shocks and vibrations to run for a set amount of time. So I unstitched and attached it to my cute pink collar, and let it be live. c:</p>
-
-		<div><i>Raspberry Pi Transmitter</i>
-		<img src="assets/projects/transmitter.jpg"></div>
-		<div><i>Controller Waveforms In Audacity</i>
-		<img src="assets/projects/multiplewaveform.png"></div>
-		<div><i>Completed Collar</i>
-		<img src="assets/projects/fullcollar.jpg"></div>
-	</div>
-</div>
-
-<div id="rfidInfo" class="info">
-	<h1>Mifare RFID Door Key Cloning</h1>
-	<a href="#" onclick="closeWindows()">X</a>
-	<div>
-		<p>While staying in university dorms, we would be provided one RFID key to unlock our dorm rooms. This lead to the common issue of leaving your key inside your room and locking yourself out, forcing you to pay a $15 key replacement fee.<br><br>
-
-		The solution to this? Purchasing a usb nfc reader, and cloning the cards.<br><br>
-
-		Unfortunately, the Mifare 1k cards that the accomodation provider was using had the keys locked behind an unknown key, that was only known by the door lock and key writing software, as such cloning them wasn't as simple as initially expected. Fortunately mifare 1k rfid cards have been torn apart by the hardware hacking community, and have several known vulnrabilities.<br><br>
-
-		The vulnrability that was easiest to execute for me was, the 'Nested Attack' which authenticates with an unused block using default keys to determine certian constants and timing information, and then preforms a timing attack on the authenticated sectors allowing key's to be guessed. Ofcourse actually executing this was easier as an implementation of this attack known as 'MFOC' was open source.<br><br>
-
-		What was slightly harder and required significant problem solving was modifying the NFC libraries to support the specific brand of NFC reader that I had purchaced, the difficultuy being confounded with my complete lack of experience with programs written in C.<br><br>
-
-		Eventually being able to clone cards, I kept a set of friends card data, so in the event that they or I misplaced the card they could be let back into their dorm rooms.<br><br>
-
-		After a while I also decided to get a mifare 1k chip embedded in my hand, so I could unlock doors with my hands full. The chip is now used to secure all my personal computers, and server.</p>
-	</div>
-</div>
-
-<div id="curiousCatInfo" class="info">
-	<h1>Curious Cat Archiver</h1>
-	<a href="#" onclick="closeWindows()">X</a>
-	<div>
-		<p><a href="https://curiouscat.qa/">CuriousCat</a> is a social media site, where users can anonymously ask questions to other users, and the other users can choose to reply. I was asked by a friend if I knew of any way to archive a user's posts, so they could make a personal archive of their account and after some research discovered no such tool.<br><br>
-
-		Being fairly free at the time, I set to work deconstructing the site, and reverse-engineering how it retrived data based on network traffic, fortunately it was fairly simply, pulling a json file based on the user's ID and a post timestamp. Within 30 minutes, I had a python script which would archive all posts, within an hour it would also create local copies of images.<br><br>
-
-		What took slightly more time to do, was create a viewer for posts so the end user wouldn't have to sift through dense JSON, unfortunately Curious Cat writes it's CSS on the fly using a javascript framework, and so it was somewhere between difficult and impossible to steal the source files. Instead I spent a couple oh hours manually recreating the Styling.<br><br>
-
-		Finally I wrote some javascript to populate the newly created viewer from the JSON file that was downloaded earlier.<br><br>
-
-		After presenting it back to my friend, they were pleased with the archiver, but wanted a few parts modified, such as implementing multithreading into the downloading utility, and allowing it to pull a range of usernames from a file.<br><br>
-
-		The Project can be forund on my Github named <a href="https://github.com/Fwuffie/CuriousCatArchiver">curiousCatArchiver</a>. <br><br></p>
-
-		<div><i>The Original Site</i>
-		<img src="assets/projects/curiousCatBefore.png"></div>
-		<div><i>My Archive Of The Site</i>
-		<img src="assets/projects/curiousCatAfter.png"></div>
-
-	</div>
-</div>
-
-<div id="headphones" class="info">
-	<h1>Upgrading the ears on my headphones</h1>
-	<a href="#" onclick="closeWindows()">X</a>
-	<div>
-		<p>I've owned the razer kitty headphones for well over a year, but honestly im not all that into cats so i decided to do something about it.
-		I picked up a pair of Dog ear hair clips from etsy and got dissasembling the headphones.<br>
-
-		<div><i>The Complete Headphones</i>
-		<img src="assets/projects/headphones.jpg"></div><br>
-
-		The razer kitty headphones have light up rgb controllable ears and I didn't want to loose that functionality, unfortunately to my dismay the engineers at razer had not designed their PCBs to be particuarly modular so it was time to reverse engineer the pcb.
-
-		At first the PCB made no sense, wires were coming in and heading straight out, without passing through anything but a capacitor. Fortunately after some tracing I was able to determine that most of the wires passing through the PCB could just be soldered to each other, and I could splice into the tiny ribbon cable that connected the two ears.
-	</p>
-
-		<div><i>PCB Tracing</i>
-		<img src="assets/projects/pcb.png"></div>
-		<div><i>Tiny soldering</i>
-		<img src="assets/projects/tiny.jpg"></div>
-	</div>
-</div>
-
-<div id="ukCovidMap" class="info">
-	<h1>Map Of Covid Cases In The UK</h1>
-	<a href="#" onclick="closeWindows()">X</a>
-	<div>
-		<p>One of the issues I had during the UK covid pandemic, was having a solid understanding of it's current severity, That's why I built a physical map to display a weighted average of weekly covid cases.<br><br>
-
-		The map was built on the back of a A2 Printed map of scotland, and serial controllable RGB led's were attached to the back. The LED's were then attached to a raspberry pi which pulled data about the covid pandemic every morning and updated the LED's based on a forward weighted average.</p>
-
-		<div><i>The Lit Up Map</i>
-		<img src="assets/projects/scotlandcovid.jpg"></div>
-	</div>
-</div>
-
-<div id="ffxiv" class="info">
-	<h1>Final Fantasy XIV Reverse Engineering</h1>
-	<a href="#" onclick="closeWindows()">X</a>
-	<div>
-		<p>I've been playing Final Fantasy with my girlfriend for a bit now, she really loves it and she also loves lego. I wanted to design a custom lego set based on one of the locations in the game. Whilst I'm still working on the lego set, In order to have a good reference I reverse engineered the game's code and implemented an untethered camera, letting me look at any part of the map.
-		</p>
-
-		<div><i>Working prototype</i>
-		<img src="assets/projects/xivcam.jpg"></div>
-		<br><br>
-
-		<p>
-		I was able to track down the code modifying the camera coordinates by estimating the expected value of it's zoom, pan and tilt, attaching a debugger and then finding the code using those values to calculate the camera's expected position. Fortunately there was a code cave nearby where I could hook in my code to give the camera first person controls. A little bit of matrix calculations later and i had a freecam.
-		</p>
-
-		<p>
-		Seperately in the game we were looking to buy a house together, Unfortunately The MMO is going through a bit of a housing crisis at the moment, and getting one involves spending upwards of 6 hours clicking a dialog box alongside upwards of 50 other players for a chance to be the one who gets it.
-
-		So it was time to automate that task, this time i decided to setup a tcp proxy in python that would allow me to decode and eventually send the necessary packets.
-		</p>
-
-		<div><i>Python TCP Proxy</i>
-		<img src="assets/projects/tcp.png"></div>
 	</div>
 </div>
 
