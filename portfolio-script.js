@@ -2,11 +2,6 @@ let slideIndex = {};
 let projects = {}
 
 window.addEventListener('DOMContentLoaded', (event) => {
-	let params = (new URL(document.location)).searchParams
-	if (params.has("autoload")) {
-		closeWindows()
-		document.getElementById(params.get("autoload")).className = 'info animateShow'
-	}
 	loadDoc()
 });
 
@@ -27,6 +22,11 @@ function loadDoc() {
 		const projects = JSON.parse(this.responseText);
 		projects.forEach(formatProjects);
 		Zoom('.project-gallery img')
+		let params = (new URL(document.location)).searchParams
+		if (params.has("autoload")) {
+			params.get("autoload")
+			document.getElementById(params.get("autoload")).scrollIntoView(true)
+		}
 	}
 	xhttp.open("GET", "projects.json", true);
 	return xhttp.send();
