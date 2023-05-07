@@ -50,6 +50,7 @@ function formatProjects(project) {
 	if (project.link.title != "") {
 		projectDom.querySelector('.project-link').innerHTML += project.link.title
 		projectDom.querySelector('.project-link').href = project.link.url
+		projectDom.querySelector('.project-link').target = "_blank"
 	} else {
 		projectDom.querySelector('.project-link').remove()
 	}

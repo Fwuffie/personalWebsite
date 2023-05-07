@@ -1,5 +1,21 @@
 [
 	{
+		"title": "Prowling Fox",
+		"id": "prowlingfox",
+		"icon": "prowlingfoxicon.png",
+		"description": "After the GPT-3 Assisted Job Application Engine successfully was able to land me a job offer, I was excited by it's capabilites, both with the AI generation of application answers and with the aggregation function allowing me to apply to mutliple jobsites without going through a loop of re-directs. So both to improve user experience and to gain experience in creating and managing a large webapp, I made it such. This is an ongoing large project that i am working on frequently to improve. There is a large roadmap of features to add to make this by far the best way to apply to jobs. If you are reading this from a job application, it most likely came from here.",
+		"link": {
+			"title": "Landing Page",
+			"url": "https://www.prowlingfox.com/"
+		},
+		"images": [
+			{
+				"title": "Site Demo",
+				"url": "prowlingfoxdemo.gif"
+			}
+		]
+	},
+	{
 		"title": "Internet Enabled Shock Collar",
 		"id": "collarInfo",
 		"icon": "collar.jpg",
@@ -40,6 +56,37 @@
 		]
 	},
 	{
+		"title": "Mifare RFID Door Key Cloning",
+		"id": "rfidInfo",
+		"icon": "rfidCards.jpg",
+		"description": "While staying in university dorms, we were provided an RFID key to unlock our dorm rooms. This led to the common issue of leaving your key inside your room and locking yourself out, forcing you to pay a $15 key replacement fee. The solution to this? Purchasing a USB NFC reader, and cloning the cards. Fortunately Mifare 1k RFID cards have been torn apart by the hardware hacking community, and have several known vulnerabilities. The vulnerability that was easiest to execute for me was the 'Nested Attack', which authenticates with an unused block using default keys to determine certian constants and timing information, and then preforms a timing attack on the authenticated sectors allowing key's to be guessed. Eventually being able to clone cards, I kept a set of friends card data, so in the event that they or I misplaced the card they could be let back into their dorm rooms.",
+		"link": {
+			"title": "Github Link",
+			"url": "https://github.com/Fwuffie/MifareReader"
+		},
+		"images": []
+	},
+	{
+		"title": "Final Fantasy XIV Reverse Engineering",
+		"id": "ffxiv",
+		"icon": "xivlogo.png",
+		"description": "I reverse engineered the online game Final Fantasy XIV's code and implemented an untethered camera, letting me look at any part of the map. I was able to track down the code modifying the camera coordinates by estimating the expected value of it's zoom, pan and tilt, attaching a debugger and then finding the code using those values to calculate the camera's expected position. Fortunately, there was a code cave nearby where I could hook in my code to give the camera first person controls. A little bit of matrix calculations later and I had a freecam. Separately, the MMO is unfortunately going through a bit of a housing crisis, and getting one involves spending several hours clicking a dialog box alongside dozens of other players for a chance to be the one who gets it. So it was time to automate that task, this time I decided to setup a TCP proxy in Python that would allow me to decode and eventually send the necessary packets.",
+		"link": {
+			"title": "Github Link",
+			"url": "https://github.com/Fwuffie/FFXIVTcpProxy"
+		},
+		"images": [
+			{
+				"title": "Network packets",
+				"url": "tcp.png"
+			},
+			{
+				"title": "Freecam in action",
+				"url": "xivcam.jpg"
+			}
+		]
+	},
+	{
 		"title": "Map Of Covid Cases In The UK",
 		"id": "ukCovidMap",
 		"icon": "ukmap.jpg",
@@ -54,17 +101,6 @@
 				"url": "scotlandcovid.jpg"
 			}
 		]
-	},
-	{
-		"title": "Mifare RFID Door Key Cloning",
-		"id": "rfidInfo",
-		"icon": "rfidCards.jpg",
-		"description": "While staying in university dorms, we were provided an RFID key to unlock our dorm rooms. This led to the common issue of leaving your key inside your room and locking yourself out, forcing you to pay a $15 key replacement fee. The solution to this? Purchasing a USB NFC reader, and cloning the cards. Fortunately Mifare 1k RFID cards have been torn apart by the hardware hacking community, and have several known vulnerabilities. The vulnerability that was easiest to execute for me was the 'Nested Attack', which authenticates with an unused block using default keys to determine certian constants and timing information, and then preforms a timing attack on the authenticated sectors allowing key's to be guessed. Eventually being able to clone cards, I kept a set of friends card data, so in the event that they or I misplaced the card they could be let back into their dorm rooms.",
-		"link": {
-			"title": "Github Link",
-			"url": "https://github.com/Fwuffie/MifareReader"
-		},
-		"images": []
 	},
 	{
 		"title": "Curious Cat Archiver",
@@ -87,6 +123,22 @@
 		]
 	},
 	{
+		"title": "♀️",
+		"id": "esolang",
+		"icon": "t-shirt.jpg",
+		"description": "This one's more of a joke than anything, thrown together in 10 min and only on the portfolio because I haven't built a blog. The t-shirt clearly won't compile in any language, I mean what language lets you have whitespace in function calls? well ♀️ does when you have a semicolon after!",
+		"link": {
+			"title": "Git Repository",
+			"url": "https://github.com/Fwuffie/female_sign"
+		},
+		"images": [
+			{
+				"title": "T-Shirt",
+				"url": "t-shirt.jpg"
+			}
+		]
+	},
+	{
 		"title": "Reverse Engineering Razer Headphones",
 		"id": "headphones",
 		"icon": "pcb.png",
@@ -103,26 +155,6 @@
 			{
 				"title": "Reverse Engineered Headphones",
 				"url": "headphones.jpg"
-			}
-		]
-	},
-	{
-		"title": "Final Fantasy XIV Reverse Engineering",
-		"id": "ffxiv",
-		"icon": "xivlogo.png",
-		"description": "I reverse engineered the online game Final Fantasy XIV's code and implemented an untethered camera, letting me look at any part of the map. I was able to track down the code modifying the camera coordinates by estimating the expected value of it's zoom, pan and tilt, attaching a debugger and then finding the code using those values to calculate the camera's expected position. Fortunately, there was a code cave nearby where I could hook in my code to give the camera first person controls. A little bit of matrix calculations later and I had a freecam. Separately, the MMO is unfortunately going through a bit of a housing crisis, and getting one involves spending several hours clicking a dialog box alongside dozens of other players for a chance to be the one who gets it. So it was time to automate that task, this time I decided to setup a TCP proxy in Python that would allow me to decode and eventually send the necessary packets.",
-		"link": {
-			"title": "Github Link",
-			"url": "https://github.com/Fwuffie/FFXIVTcpProxy"
-		},
-		"images": [
-			{
-				"title": "Network packets",
-				"url": "tcp.png"
-			},
-			{
-				"title": "Freecam in action",
-				"url": "xivcam.jpg"
 			}
 		]
 	}
